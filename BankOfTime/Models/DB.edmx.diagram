@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3fa976922bf84eb3ab11db458688b4ac" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="masterModel.complain" Width="1.5" PointX="4" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.message" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.petition" Width="1.5" PointX="3.875" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.user" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK__complain__Issuer__1FEDB87C" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__complain__User__20E1DCB5" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__message__Petitio__184C96B4" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__message__Sender__1940BAED" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__petition__Perfor__147C05D0" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__petition__Reques__15702A09" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
