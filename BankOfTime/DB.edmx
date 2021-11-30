@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="complain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Issuer" Type="varchar" MaxLength="100" />
+          <Property Name="User" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar" MaxLength="250" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetitionId" Type="int" />
+          <Property Name="Sender" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar" MaxLength="250" />
+          <Property Name="DateSent" Type="datetime" />
+        </EntityType>
+        <EntityType Name="petition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Performer" Type="varchar" MaxLength="100" />
+          <Property Name="Requester" Type="varchar" MaxLength="100" />
+          <Property Name="Details" Type="varchar" MaxLength="250" />
+          <Property Name="HoursTransferred" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="MobilePhone" />
+          </Key>
+          <Property Name="MobilePhone" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Capabilities" Type="varchar" MaxLength="250" />
+          <Property Name="MonthlyHours" Type="int" />
+          <Property Name="Balance" Type="int" />
+        </EntityType>
+        <Association Name="FK__complain__Issuer__1FEDB87C">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="complain" Type="Self.complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="complain">
+              <PropertyRef Name="Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complain__User__20E1DCB5">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="complain" Type="Self.complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="complain">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__Petitio__184C96B4">
+          <End Role="petition" Type="Self.petition" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="petition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="PetitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__Sender__1940BAED">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__petition__Perfor__147C05D0">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="petition" Type="Self.petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="Performer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__petition__Reques__15702A09">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="petition" Type="Self.petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="Requester" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterModelStoreContainer">
+          <EntitySet Name="complain" EntityType="Self.complain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="petition" EntityType="Self.petition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__complain__Issuer__1FEDB87C" Association="Self.FK__complain__Issuer__1FEDB87C">
+            <End Role="user" EntitySet="user" />
+            <End Role="complain" EntitySet="complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complain__User__20E1DCB5" Association="Self.FK__complain__User__20E1DCB5">
+            <End Role="user" EntitySet="user" />
+            <End Role="complain" EntitySet="complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__Petitio__184C96B4" Association="Self.FK__message__Petitio__184C96B4">
+            <End Role="petition" EntitySet="petition" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__Sender__1940BAED" Association="Self.FK__message__Sender__1940BAED">
+            <End Role="user" EntitySet="user" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petition__Perfor__147C05D0" Association="Self.FK__petition__Perfor__147C05D0">
+            <End Role="user" EntitySet="user" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petition__Reques__15702A09" Association="Self.FK__petition__Reques__15702A09">
+            <End Role="user" EntitySet="user" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="complain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Issuer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="user1" Relationship="Self.FK__complain__Issuer__1FEDB87C" FromRole="complain" ToRole="user" />
+          <NavigationProperty Name="user2" Relationship="Self.FK__complain__User__20E1DCB5" FromRole="complain" ToRole="user" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetitionId" Type="Int32" />
+          <Property Name="Sender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DateSent" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="petition" Relationship="Self.FK__message__Petitio__184C96B4" FromRole="message" ToRole="petition" />
+          <NavigationProperty Name="user" Relationship="Self.FK__message__Sender__1940BAED" FromRole="message" ToRole="user" />
+        </EntityType>
+        <EntityType Name="petition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Performer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Requester" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="HoursTransferred" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="message" Relationship="Self.FK__message__Petitio__184C96B4" FromRole="petition" ToRole="message" />
+          <NavigationProperty Name="user" Relationship="Self.FK__petition__Perfor__147C05D0" FromRole="petition" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="Self.FK__petition__Reques__15702A09" FromRole="petition" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="MobilePhone" />
+          </Key>
+          <Property Name="MobilePhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Capabilities" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MonthlyHours" Type="Int32" />
+          <Property Name="Balance" Type="Int32" />
+          <NavigationProperty Name="complain" Relationship="Self.FK__complain__Issuer__1FEDB87C" FromRole="user" ToRole="complain" />
+          <NavigationProperty Name="complain1" Relationship="Self.FK__complain__User__20E1DCB5" FromRole="user" ToRole="complain" />
+          <NavigationProperty Name="message" Relationship="Self.FK__message__Sender__1940BAED" FromRole="user" ToRole="message" />
+          <NavigationProperty Name="petition" Relationship="Self.FK__petition__Perfor__147C05D0" FromRole="user" ToRole="petition" />
+          <NavigationProperty Name="petition1" Relationship="Self.FK__petition__Reques__15702A09" FromRole="user" ToRole="petition" />
+        </EntityType>
+        <Association Name="FK__complain__Issuer__1FEDB87C">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="complain" Type="Self.complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="complain">
+              <PropertyRef Name="Issuer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__complain__User__20E1DCB5">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="complain" Type="Self.complain" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="complain">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__Petitio__184C96B4">
+          <End Role="petition" Type="Self.petition" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="petition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="PetitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__Sender__1940BAED">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__petition__Perfor__147C05D0">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="petition" Type="Self.petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="Performer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__petition__Reques__15702A09">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="petition" Type="Self.petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="MobilePhone" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="Requester" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="complain" EntityType="Self.complain" />
+          <EntitySet Name="message" EntityType="Self.message" />
+          <EntitySet Name="petition" EntityType="Self.petition" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK__complain__Issuer__1FEDB87C" Association="Self.FK__complain__Issuer__1FEDB87C">
+            <End Role="user" EntitySet="user" />
+            <End Role="complain" EntitySet="complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__complain__User__20E1DCB5" Association="Self.FK__complain__User__20E1DCB5">
+            <End Role="user" EntitySet="user" />
+            <End Role="complain" EntitySet="complain" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__Petitio__184C96B4" Association="Self.FK__message__Petitio__184C96B4">
+            <End Role="petition" EntitySet="petition" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__Sender__1940BAED" Association="Self.FK__message__Sender__1940BAED">
+            <End Role="user" EntitySet="user" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petition__Perfor__147C05D0" Association="Self.FK__petition__Perfor__147C05D0">
+            <End Role="user" EntitySet="user" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petition__Reques__15702A09" Association="Self.FK__petition__Reques__15702A09">
+            <End Role="user" EntitySet="user" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+          <EntitySetMapping Name="complain">
+            <EntityTypeMapping TypeName="masterModel.complain">
+              <MappingFragment StoreEntitySet="complain">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Issuer" ColumnName="Issuer" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="message">
+            <EntityTypeMapping TypeName="masterModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PetitionId" ColumnName="PetitionId" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="petition">
+            <EntityTypeMapping TypeName="masterModel.petition">
+              <MappingFragment StoreEntitySet="petition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Performer" ColumnName="Performer" />
+                <ScalarProperty Name="Requester" ColumnName="Requester" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="HoursTransferred" ColumnName="HoursTransferred" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="masterModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Capabilities" ColumnName="Capabilities" />
+                <ScalarProperty Name="MonthlyHours" ColumnName="MonthlyHours" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
