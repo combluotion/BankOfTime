@@ -131,6 +131,7 @@ namespace BankOfTime
             this.btnPeticiones.TabIndex = 0;
             this.btnPeticiones.Text = "Petitions";
             this.btnPeticiones.UseVisualStyleBackColor = true;
+            this.btnPeticiones.Click += new System.EventHandler(this.btnPeticiones_Click);
             // 
             // btnAyuda
             // 
