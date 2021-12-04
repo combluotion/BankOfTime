@@ -52,7 +52,7 @@ namespace BankOfTime
                         db.petition.Add(p);
                         db.SaveChanges();
 
-                        return p.Id;
+                        id = p.Id;
                     }
                 }
                 return id;
@@ -63,6 +63,18 @@ namespace BankOfTime
                 Debug.WriteLine("ERROR RETRIEVING PETITION");
                 return null;
             }
+        }
+
+        private int? GetPetitionStatus(int? petition)
+        {
+            int? status;
+            using (masterEntities db = new masterEntities())
+            {
+                status = (from d in db.petition
+                      where d.Id == petition
+                      select (int?)d.Status).FirstOrDefault<int?>();
+            }
+            return status;
         }
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -78,10 +90,24 @@ namespace BankOfTime
         {
             using (masterEntities db = new masterEntities())
             {
-                var lst = from d in db.user
+                var lstUsers = from d in db.user
                           select new { d.MobilePhone, d.Name, d.MonthlyHours, d.Capabilities };
-                usersDashboard.DataSource = lst.ToList();
-               // usersDashboard.Columns[0].Visible = false;
+                usersDashboard.DataSource = lstUsers.ToList();
+                // usersDashboard.Columns[0].Visible = false;
+
+               // var lstMessages = db.message.Where(d=> d.petition.Performer == currentUser || d.petition.Requester == currentUser)
+                    //.GroupBy(p => p.PetitionId)
+                   // .Aggregate(db.message)
+                 //   .Select(p => p.First())
+                  /*  (from d in db.message
+                                   where ()
+                                   .GroupBy().Select(x)*/
+
+
+                                   
+                                   
+                   
+
 
             }
 
@@ -94,12 +120,14 @@ namespace BankOfTime
             if(phoneNumber != null) { 
             int? petitionId = GetPetitionId(phoneNumber);
 
-                if(petitionId != null) { 
-                    Messages messagesForm = new Messages(phoneNumber,currentUser, petitionId);
+                if(petitionId != null) {
+                    int? status = GetPetitionStatus(petitionId);
+                    Messages messagesForm = new Messages(phoneNumber,currentUser, petitionId, status, true);
                     messagesForm.Show();
                 }
 
             }
         }
+
     }
 }

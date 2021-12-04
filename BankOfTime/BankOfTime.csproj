@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsolidatePetition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsolidatePetition.Designer.cs">
+      <DependentUpon>ConsolidatePetition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TransparentControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConsolidatePetition.resx">
+      <DependentUpon>ConsolidatePetition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>

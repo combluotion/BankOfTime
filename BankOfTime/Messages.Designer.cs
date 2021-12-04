@@ -33,10 +33,14 @@ namespace BankOfTime
             this.btn_messageSend = new System.Windows.Forms.Button();
             this.txt_MessageToSend = new System.Windows.Forms.TextBox();
             this.MessagesLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -49,7 +53,7 @@ namespace BankOfTime
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.MessagesLayout);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
@@ -78,7 +82,6 @@ namespace BankOfTime
             this.txt_MessageToSend.Name = "txt_MessageToSend";
             this.txt_MessageToSend.Size = new System.Drawing.Size(626, 110);
             this.txt_MessageToSend.TabIndex = 0;
-            this.txt_MessageToSend.TextChanged += new System.EventHandler(this.txt_MessageToSend_TextChanged);
             // 
             // MessagesLayout
             // 
@@ -86,8 +89,25 @@ namespace BankOfTime
             this.MessagesLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.MessagesLayout.Location = new System.Drawing.Point(0, 0);
             this.MessagesLayout.Name = "MessagesLayout";
-            this.MessagesLayout.Size = new System.Drawing.Size(706, 481);
+            this.MessagesLayout.Size = new System.Drawing.Size(702, 421);
             this.MessagesLayout.TabIndex = 0;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel2.Controls.Add(this.MessagesLayout);
+            this.splitContainer2.Size = new System.Drawing.Size(706, 481);
+            this.splitContainer2.SplitterDistance = 52;
+            this.splitContainer2.TabIndex = 1;
             // 
             // Messages
             // 
@@ -102,6 +122,9 @@ namespace BankOfTime
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -112,5 +135,6 @@ namespace BankOfTime
         private System.Windows.Forms.Button btn_messageSend;
         private System.Windows.Forms.TextBox txt_MessageToSend;
         private System.Windows.Forms.FlowLayoutPanel MessagesLayout;
+        private System.Windows.Forms.SplitContainer splitContainer2;
     }
 }

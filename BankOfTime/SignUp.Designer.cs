@@ -61,7 +61,7 @@ namespace BankOfTime
             this.panel1.Controls.Add(this.header_signup);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(290, 366);
             this.panel1.TabIndex = 12;
@@ -70,7 +70,7 @@ namespace BankOfTime
             // 
             this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.Location = new System.Drawing.Point(197, 286);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 26);
             this.btnSignUp.TabIndex = 23;
@@ -92,7 +92,7 @@ namespace BankOfTime
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(134, 245);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 20);
@@ -101,7 +101,7 @@ namespace BankOfTime
             // txtCapabilities
             // 
             this.txtCapabilities.Location = new System.Drawing.Point(134, 211);
-            this.txtCapabilities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCapabilities.Margin = new System.Windows.Forms.Padding(2);
             this.txtCapabilities.Name = "txtCapabilities";
             this.txtCapabilities.Size = new System.Drawing.Size(121, 20);
             this.txtCapabilities.TabIndex = 20;
@@ -109,7 +109,7 @@ namespace BankOfTime
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(134, 180);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(121, 20);
             this.txtPhoneNumber.TabIndex = 19;
@@ -117,7 +117,7 @@ namespace BankOfTime
             // txtMonthlyHours
             // 
             this.txtMonthlyHours.Location = new System.Drawing.Point(134, 150);
-            this.txtMonthlyHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMonthlyHours.Margin = new System.Windows.Forms.Padding(2);
             this.txtMonthlyHours.Name = "txtMonthlyHours";
             this.txtMonthlyHours.Size = new System.Drawing.Size(121, 20);
             this.txtMonthlyHours.TabIndex = 18;
@@ -125,7 +125,7 @@ namespace BankOfTime
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(134, 119);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 20);
             this.txtName.TabIndex = 17;
@@ -194,7 +194,7 @@ namespace BankOfTime
             this.ClientSize = new System.Drawing.Size(290, 366);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SignUp";
             this.Text = "Sign Up";
             this.Load += new System.EventHandler(this.SignUp_Load);
