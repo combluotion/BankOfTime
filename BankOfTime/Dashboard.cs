@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -95,18 +96,43 @@ namespace BankOfTime
                 usersDashboard.DataSource = lstUsers.ToList();
                 // usersDashboard.Columns[0].Visible = false;
 
-               // var lstMessages = db.message.Where(d=> d.petition.Performer == currentUser || d.petition.Requester == currentUser)
-                    //.GroupBy(p => p.PetitionId)
-                   // .Aggregate(db.message)
-                 //   .Select(p => p.First())
-                  /*  (from d in db.message
-                                   where ()
-                                   .GroupBy().Select(x)*/
+                // var lstMessages = db.message.Where(d=> d.petition.Performer == currentUser || d.petition.Requester == currentUser)
+                //.GroupBy(p => p.PetitionId)
+                // .Aggregate(db.message)
+                //   .Select(p => p.First())
+                /*  (from d in db.message
+                                 where ()
+                                 .GroupBy().Select(x)*/
+
+                /*var lstMessages = db.message.Where(d => d.petition.Performer == currentUser || d.petition.Requester == currentUser)
+                                            .Select(d => new { d.PetitionId, d.Message1, d.DateSent })
+                                            .Join()*/
+
+                var lstMessages = from d in db.message
+                                  where d.petition.Performer == currentUser || d.petition.Requester == currentUser
+                                  group d by d.PetitionId into op
+                                  join p in db.message on op.Max(x => x.DateSent) equals p.DateSent
+                                  select new
+                                  {
+                                      //petitionId = op.Key,
+                                      DateSent = op.Max(x => x.DateSent),
+                                      Message = p.Message1
+                                  };
+
+                //     select new
+                //      {
+                //petitionId = op.Key,
+                //         DateSent = op.Max(x => x.DateSent),
+                //        Message = op.Select(x
+                //     };
+                messagesDashboard.DataSource = lstMessages.ToList();
 
 
-                                   
-                                   
-                   
+
+
+
+
+
 
 
             }
@@ -129,5 +155,9 @@ namespace BankOfTime
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
