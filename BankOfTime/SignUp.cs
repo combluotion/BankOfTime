@@ -44,6 +44,7 @@ namespace BankOfTime
             user userToCreate = new user();
             userToCreate.Name = nameTxt;
             userToCreate.MonthlyHours = monthlyHoursVal;
+            userToCreate.Balance = monthlyHoursVal;
             userToCreate.MobilePhone = phoneNumberTxt;
             userToCreate.Capabilities = capabilitiesTxt;
             userToCreate.Password = passwordTxt;

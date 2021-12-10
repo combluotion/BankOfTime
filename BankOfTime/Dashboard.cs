@@ -16,8 +16,9 @@ namespace BankOfTime
     public partial class Dashboard : Form
     {
         string currentUser = "654131918";
-        public Dashboard()
+        public Dashboard(string user)
         {
+            currentUser = user;
             InitializeComponent();
         }
 
@@ -129,6 +130,11 @@ namespace BankOfTime
 
 
 
+                var userData = (from d in db.user
+                                where d.MobilePhone == currentUser
+                                select new { d.Name, d.Balance, d.Capabilities }).FirstOrDefault();
+
+                UserDatalbl.Text = $"{userData.Name}\n\nBalance: {userData.Balance}\n\nCapacidades: {userData.Capabilities}"; 
 
 
 

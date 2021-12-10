@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankOfTime.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,10 +56,42 @@ namespace BankOfTime
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Dashboard dashboardForm = new Dashboard();
+
+            string user = txtPhoneNumber.Text;
+            string password = txtPassword.Text;
+            bool loginOK = false;
+
+            using(masterEntities db = new masterEntities())
+            {
+                var userLogin = (from d in db.user
+                                 where d.MobilePhone == user && d.Password == password
+                                 select new { d.MobilePhone }).FirstOrDefault();
+
+                if(userLogin != null)
+                {
+                    loginOK = true;
+                }
+
+            }
+
+            if(loginOK)
+            { 
+            Dashboard dashboardForm = new Dashboard(user);
+                
             this.Hide();
             dashboardForm.Closed += (s, args) => this.Close();
             dashboardForm.Show();
+            }
+            else
+            {
+                string message = "Wrong user or password!";
+                string caption = "Please enter your user and password";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+
+                // Displays the MessageBox.
+                MessageBox.Show(message, caption, buttons);
+            }
 
 
 
