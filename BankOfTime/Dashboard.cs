@@ -165,5 +165,11 @@ namespace BankOfTime
         {
 
         }
+
+        private void btnPeticiones_Click(object sender, EventArgs e)
+        {
+            lastRequests lrequests = new lastRequests();
+            lrequests.ShowDialog();
+        }
     }
 }
