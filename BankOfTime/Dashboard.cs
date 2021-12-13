@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -171,5 +172,26 @@ namespace BankOfTime
             lastRequests lrequests = new lastRequests();
             lrequests.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (masterEntities dB = new masterEntities())
+            {
+                var userDataXml = (from d in dB.user
+                                   where d.MobilePhone == currentUser
+                                   select new { d.Name, d.Balance, d.Capabilities }).FirstOrDefault();
+
+                // construccion funcional de documentos Xml
+                XElement usuarios = new XElement("Usuarios",
+                new XElement("Usuario", new XAttribute("Name", userDataXml.Name),
+                    new XElement("Capabilities", userDataXml.Capabilities),
+                    new XElement("Balance", userDataXml.Balance)
+                    )
+                );
+
+                usuarios.Save("Usuarios.xml");
+            }
+        }
     }
 }
+   
