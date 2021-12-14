@@ -192,21 +192,33 @@ namespace BankOfTime
                 );
 
                 usuarios.Save("Usuarios.xml");
+                MessageBox.Show("The file has been created correctly", "File created", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnReadXml(object sender, EventArgs e)
         {
-            XDocument xdoc = XDocument.Load("Usuarios.xml");
-
-            xdoc.Descendants("Usuario").Select(p => new
+            try
             {
-                name = p.Attribute("Name").Value,
-                capabilities = p.Element("Capabilities").Value,
-                balance = p.Element("Balance").Value
-            }).ToList().ForEach(p => {
-                Console.WriteLine("Name: " + p.name +"\nCapabilites: " + p.capabilities + "\nBalance: " + p.balance);
-            });
+                XDocument xdoc = XDocument.Load("Usuarios.xml");
+
+                xdoc.Descendants("Usuario").Select(p => new
+                {
+                    name = p.Attribute("Name").Value,
+                    capabilities = p.Element("Capabilities").Value,
+                    balance = p.Element("Balance").Value
+                }).ToList().ForEach(p => {
+                    //Console.WriteLine("Name: " + p.name + "\nCapabilites: " + p.capabilities + "\nBalance: " + p.balance);
+                    MessageBox.Show("Name: " + p.name + "\nCapabilites: " + p.capabilities + "\nBalance: " + p.balance,"Reading the xml file",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                });
+            }
+            catch(System.IO.FileNotFoundException errorFile)
+            {
+                
+                
+                    MessageBox.Show("File cannot be read", "File not read or not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
         }
     }
 }

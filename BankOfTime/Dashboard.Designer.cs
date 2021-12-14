@@ -31,6 +31,7 @@ namespace BankOfTime
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.MainSplit = new System.Windows.Forms.SplitContainer();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.LogoHolder = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@ namespace BankOfTime
             this.DataSplit = new System.Windows.Forms.SplitContainer();
             this.usersDashboard = new System.Windows.Forms.DataGridView();
             this.messagesDashboard = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplit)).BeginInit();
             this.MainSplit.Panel1.SuspendLayout();
             this.MainSplit.Panel2.SuspendLayout();
@@ -91,6 +91,17 @@ namespace BankOfTime
             this.MainSplit.SplitterDistance = 49;
             this.MainSplit.SplitterWidth = 3;
             this.MainSplit.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(278, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 45);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Load Xml";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnReadXml);
             // 
             // button1
             // 
@@ -254,17 +265,6 @@ namespace BankOfTime
             this.messagesDashboard.Size = new System.Drawing.Size(195, 539);
             this.messagesDashboard.TabIndex = 0;
             this.messagesDashboard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(278, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 45);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Load Xml";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnReadXml);
             // 
             // Dashboard
             // 
