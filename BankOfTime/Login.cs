@@ -13,9 +13,16 @@ namespace BankOfTime
 {
     public partial class Login : Form
     {
+        masterEntities db;
         public Login()
         {
             InitializeComponent();
+        }
+
+        public Login(masterEntities db)
+        {
+            InitializeComponent();
+            this.db = db;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -59,20 +66,8 @@ namespace BankOfTime
 
             string user = txtPhoneNumber.Text;
             string password = txtPassword.Text;
-            bool loginOK = false;
 
-            using(masterEntities db = new masterEntities())
-            {
-                var userLogin = (from d in db.user
-                                 where d.MobilePhone == user && d.Password == password
-                                 select new { d.MobilePhone }).FirstOrDefault();
-
-                if(userLogin != null)
-                {
-                    loginOK = true;
-                }
-
-            }
+            bool loginOK = TryLogin(user, password);
 
             if(loginOK)
             { 
@@ -97,5 +92,32 @@ namespace BankOfTime
 
 
         }
+
+        public bool TryLogin(string user, string password)
+        {
+            bool loginResponse = false;
+
+
+
+            if (db == null)
+                db = new masterEntities();
+
+                var userLogin = (from d in db.user
+                                 where d.MobilePhone == user && d.Password == password
+                                 select new { d.MobilePhone }).FirstOrDefault();
+
+                if (userLogin != null)
+                {
+                    loginResponse = true;
+                }
+
+            db.Dispose();
+
+            
+
+            return loginResponse;
+        }
+
+
     }
 }

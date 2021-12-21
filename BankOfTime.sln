@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankOfTime", "BankOfTime\BankOfTime.csproj", "{BADEB093-9EB2-44CA-BDBF-A2621EE0ED0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankOfTimeUnitTests", "BankOfTimeUnitTests\BankOfTimeUnitTests.csproj", "{A9D1DC31-A926-4CA2-9FFE-912EF3D947E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BADEB093-9EB2-44CA-BDBF-A2621EE0ED0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BADEB093-9EB2-44CA-BDBF-A2621EE0ED0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BADEB093-9EB2-44CA-BDBF-A2621EE0ED0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D1DC31-A926-4CA2-9FFE-912EF3D947E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D1DC31-A926-4CA2-9FFE-912EF3D947E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D1DC31-A926-4CA2-9FFE-912EF3D947E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D1DC31-A926-4CA2-9FFE-912EF3D947E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

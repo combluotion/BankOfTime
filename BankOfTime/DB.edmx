@@ -386,6 +386,19 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="d4c3eb2d20c846779e959c81c03caa14" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.complain" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.message" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.petition" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.user" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK__complain__Issuer__1FEDB87C" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__complain__User__20E1DCB5" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__message__Petitio__184C96B4" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__message__Sender__1940BAED" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__petition__Perfor__147C05D0" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK__petition__Reques__15702A09" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>
