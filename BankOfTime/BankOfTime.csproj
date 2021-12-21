@@ -70,6 +70,17 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="lastRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lastRequests.Designer.cs">
+      <DependentUpon>lastRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +135,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="lastRequests.resx">
+      <DependentUpon>lastRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages.resx">
       <DependentUpon>Messages.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +157,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EntityDeploy Include="Models\DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB.Designer.cs</LastGenOutput>
     </EntityDeploy>

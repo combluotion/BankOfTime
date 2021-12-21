@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,11 +39,11 @@ namespace BankOfTime
             try
             {
                 int? id;
-               using (masterEntities db = new masterEntities())
+                using (masterEntities db = new masterEntities())
                 {
                     id = (from d in db.petition
-                              where d.Performer == phoneNumber && d.Status != (int?)PetitionStatus.status.finished && d.Status != (int?)PetitionStatus.status.canceled
-                              select (int?)d.Id).FirstOrDefault<int?>();
+                          where d.Performer == phoneNumber && d.Status != (int?)PetitionStatus.status.finished && d.Status != (int?)PetitionStatus.status.canceled
+                          select (int?)d.Id).FirstOrDefault<int?>();
 
                     if (id == null)
                     {
@@ -73,8 +74,8 @@ namespace BankOfTime
             using (masterEntities db = new masterEntities())
             {
                 status = (from d in db.petition
-                      where d.Id == petition
-                      select (int?)d.Status).FirstOrDefault<int?>();
+                          where d.Id == petition
+                          select (int?)d.Status).FirstOrDefault<int?>();
             }
             return status;
         }
@@ -93,7 +94,7 @@ namespace BankOfTime
             using (masterEntities db = new masterEntities())
             {
                 var lstUsers = from d in db.user
-                          select new { d.MobilePhone, d.Name, d.MonthlyHours, d.Capabilities };
+                               select new { d.MobilePhone, d.Name, d.MonthlyHours, d.Capabilities };
                 usersDashboard.DataSource = lstUsers.ToList();
                 // usersDashboard.Columns[0].Visible = false;
 
@@ -134,7 +135,7 @@ namespace BankOfTime
                                 where d.MobilePhone == currentUser
                                 select new { d.Name, d.Balance, d.Capabilities }).FirstOrDefault();
 
-                UserDatalbl.Text = $"{userData.Name}\n\nBalance: {userData.Balance}\n\nCapacidades: {userData.Capabilities}"; 
+                UserDatalbl.Text = $"{userData.Name}\n\nBalance: {userData.Balance}\n\nCapacidades: {userData.Capabilities}";
 
 
 
@@ -143,18 +144,20 @@ namespace BankOfTime
 
             }
 
-       
+
         }
 
         private void usersDashboard_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string phoneNumber = GetMobilePhone();
-            if(phoneNumber != null) { 
-            int? petitionId = GetPetitionId(phoneNumber);
+            if (phoneNumber != null)
+            {
+                int? petitionId = GetPetitionId(phoneNumber);
 
-                if(petitionId != null) {
+                if (petitionId != null)
+                {
                     int? status = GetPetitionStatus(petitionId);
-                    Messages messagesForm = new Messages(phoneNumber,currentUser, petitionId, status, true);
+                    Messages messagesForm = new Messages(phoneNumber, currentUser, petitionId, status, true);
                     messagesForm.Show();
                 }
 
@@ -165,5 +168,58 @@ namespace BankOfTime
         {
 
         }
+
+        private void btnPeticiones_Click(object sender, EventArgs e)
+        {
+            lastRequests lrequests = new lastRequests();
+            lrequests.ShowDialog();
+        }
+
+        private void btnCreateXml(object sender, EventArgs e)
+        {
+            using (masterEntities dB = new masterEntities())
+            {
+                var userDataXml = (from d in dB.user
+                                   where d.MobilePhone == currentUser
+                                   select new { d.Name, d.Balance, d.Capabilities }).FirstOrDefault();
+
+                // construccion funcional de documentos Xml
+                XElement usuarios = new XElement("Usuarios",
+                new XElement("Usuario", new XAttribute("Name", userDataXml.Name),
+                    new XElement("Capabilities", userDataXml.Capabilities),
+                    new XElement("Balance", userDataXml.Balance)
+                    )
+                );
+
+                usuarios.Save("Usuarios.xml");
+                MessageBox.Show("The file has been created correctly", "File created", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnReadXml(object sender, EventArgs e)
+        {
+            try
+            {
+                XDocument xdoc = XDocument.Load("Usuarios.xml");
+
+                xdoc.Descendants("Usuario").Select(p => new
+                {
+                    name = p.Attribute("Name").Value,
+                    capabilities = p.Element("Capabilities").Value,
+                    balance = p.Element("Balance").Value
+                }).ToList().ForEach(p => {
+                    //Console.WriteLine("Name: " + p.name + "\nCapabilites: " + p.capabilities + "\nBalance: " + p.balance);
+                    MessageBox.Show("Name: " + p.name + "\nCapabilites: " + p.capabilities + "\nBalance: " + p.balance,"Reading the xml file",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                });
+            }
+            catch(System.IO.FileNotFoundException errorFile)
+            {
+                
+                
+                    MessageBox.Show("File cannot be read", "File not read or not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+        }
     }
 }
+   
