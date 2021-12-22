@@ -95,6 +95,15 @@ namespace BankOfTime
                 petitionStatus = (int?)PetitionStatus.status.onGoing;
                 LoadButton();
             }
+            else
+            {
+                string message = "Perform for the community in order to have balance!";
+                string caption = "You don't have enough balance";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                // Displays the MessageBox.
+                MessageBox.Show(message, caption, buttons);
+            }
+
         }
         private void btn_CancelPetition_Click(object sender, EventArgs e)
         {

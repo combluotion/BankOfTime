@@ -10,18 +10,18 @@
 namespace BankOfTime.Models
 {
     using System;
-    using System.Data.Common;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
     public partial class masterEntities : DbContext
     {
-
-        public masterEntities(DbConnection dbConnection)
-        : base(dbConnection, contextOwnsConnection: true)
-        {
+    
+        // I added this constructor so I could inject a db-connection into the context:
+        public masterEntities(System.Data.Common.DbConnection dbConnection, bool contextOwnsConnection) 
+            : base(dbConnection, contextOwnsConnection)
+            {
         }
-
+    
         public masterEntities()
             : base("name=masterEntities")
         {
