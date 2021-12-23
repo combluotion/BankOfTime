@@ -94,8 +94,9 @@ namespace BankOfTime
             // 
             // button2
             // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(278, 0);
+            this.button2.Location = new System.Drawing.Point(120, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 45);
             this.button2.TabIndex = 5;
@@ -105,8 +106,9 @@ namespace BankOfTime
             // 
             // button1
             // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(125, 0);
+            this.button1.Location = new System.Drawing.Point(260, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(156, 45);
             this.button1.TabIndex = 4;
@@ -272,8 +274,10 @@ namespace BankOfTime
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 595);
             this.Controls.Add(this.MainSplit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.MainSplit.Panel1.ResumeLayout(false);

@@ -22,19 +22,59 @@ namespace BankOfTime
 
         private void btnConsolidate_Click(object sender, EventArgs e)
         {
-            using(masterEntities db = new masterEntities())
-            {
-                petition p = db.petition.Find(petitionId);
-                p.Id = petitionId;
-                p.Details = txtDetails.Text;
-                p.Date = dt_datapeticio.Value;
-                p.HoursTransferred = int.Parse(txtPetitionHours.Text);
 
-                db.SaveChanges();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+            
+            
+            borrarMensajesError();
+            if (validarCampos())
+            {
+                using (masterEntities db = new masterEntities())
+                {
+                    petition p = db.petition.Find(petitionId);
+                    p.Id = petitionId;
+                    p.Details = txtDetails.Text;
+                    p.Date = dt_datapeticio.Value;
+                    p.HoursTransferred = int.Parse(txtPetitionHours.Text);
+
+                    db.SaveChanges();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+
+                }
+
+                MessageBox.Show("Petición guardada correctamente!", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+            else
+            {
+                MessageBox.Show("Todos los campos son obligatorios", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
+        }
+        private bool validarCampos()
+        {
+            bool ok = true;
+
+            if (txtDetails.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtDetails, "Debe ingresar los detalles");
+            }
+
+            if (txtPetitionHours.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtPetitionHours, "Debe ingresar el número de horas");
+            }
+
+            return ok;
+        }
+
+        private void borrarMensajesError()
+        {
+            errorProvider1.SetError(txtDetails, "");
+            errorProvider1.SetError(txtPetitionHours, "");
         }
     }
 }

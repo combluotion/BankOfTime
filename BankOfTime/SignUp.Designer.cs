@@ -29,6 +29,7 @@ namespace BankOfTime
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -42,7 +43,9 @@ namespace BankOfTime
             this.lblMonthlyHours = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.header_signup = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,8 +71,8 @@ namespace BankOfTime
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(197, 286);
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Location = new System.Drawing.Point(180, 282);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 26);
@@ -81,11 +84,11 @@ namespace BankOfTime
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(48, 242);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(48, 245);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(78, 20);
+            this.lblPassword.Size = new System.Drawing.Size(68, 16);
             this.lblPassword.TabIndex = 22;
             this.lblPassword.Text = "Password";
             // 
@@ -133,44 +136,44 @@ namespace BankOfTime
             // lblCapabilities
             // 
             this.lblCapabilities.AutoSize = true;
-            this.lblCapabilities.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapabilities.Location = new System.Drawing.Point(37, 209);
+            this.lblCapabilities.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCapabilities.Location = new System.Drawing.Point(37, 211);
             this.lblCapabilities.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCapabilities.Name = "lblCapabilities";
-            this.lblCapabilities.Size = new System.Drawing.Size(90, 20);
+            this.lblCapabilities.Size = new System.Drawing.Size(79, 16);
             this.lblCapabilities.TabIndex = 16;
             this.lblCapabilities.Text = "Capabilities";
             // 
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhoneNumber.Location = new System.Drawing.Point(18, 180);
             this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(115, 20);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(98, 16);
             this.lblPhoneNumber.TabIndex = 15;
             this.lblPhoneNumber.Text = "Phone Number";
             // 
             // lblMonthlyHours
             // 
             this.lblMonthlyHours.AutoSize = true;
-            this.lblMonthlyHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonthlyHours.Location = new System.Drawing.Point(22, 150);
+            this.lblMonthlyHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonthlyHours.Location = new System.Drawing.Point(23, 150);
             this.lblMonthlyHours.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonthlyHours.Name = "lblMonthlyHours";
-            this.lblMonthlyHours.Size = new System.Drawing.Size(111, 20);
+            this.lblMonthlyHours.Size = new System.Drawing.Size(93, 16);
             this.lblMonthlyHours.TabIndex = 14;
             this.lblMonthlyHours.Text = "Monthly Hours";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(74, 115);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(71, 119);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.Size = new System.Drawing.Size(45, 16);
             this.lblName.TabIndex = 13;
             this.lblName.Text = "Name";
             // 
@@ -180,12 +183,16 @@ namespace BankOfTime
             this.header_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.header_signup.Font = new System.Drawing.Font("Impact", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_signup.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.header_signup.Location = new System.Drawing.Point(20, 54);
+            this.header_signup.Location = new System.Drawing.Point(62, 42);
             this.header_signup.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.header_signup.Name = "header_signup";
             this.header_signup.Size = new System.Drawing.Size(162, 35);
             this.header_signup.TabIndex = 12;
             this.header_signup.Text = "Sign Up now!";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // SignUp
             // 
@@ -195,11 +202,15 @@ namespace BankOfTime
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
             this.Load += new System.EventHandler(this.SignUp_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,5 +229,6 @@ namespace BankOfTime
         private System.Windows.Forms.Label lblMonthlyHours;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label header_signup;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

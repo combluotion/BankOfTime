@@ -56,42 +56,50 @@ namespace BankOfTime
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            string user = txtPhoneNumber.Text;
-            string password = txtPassword.Text;
-            bool loginOK = false;
-
-            using(masterEntities db = new masterEntities())
+            try
             {
-                var userLogin = (from d in db.user
-                                 where d.MobilePhone == user && d.Password == password
-                                 select new { d.MobilePhone }).FirstOrDefault();
+                string user = txtPhoneNumber.Text;
+                string password = txtPassword.Text;
+                bool loginOK = false;
 
-                if(userLogin != null)
+                using (masterEntities db = new masterEntities())
                 {
-                    loginOK = true;
+                    var userLogin = (from d in db.user
+                                     where d.MobilePhone == user && d.Password == password
+                                     select new { d.MobilePhone }).FirstOrDefault();
+
+                    if (userLogin != null)
+                    {
+                        loginOK = true;
+                    }
+
                 }
 
-            }
+                if (loginOK)
+                {
+                    Dashboard dashboardForm = new Dashboard(user);
 
-            if(loginOK)
-            { 
-            Dashboard dashboardForm = new Dashboard(user);
-                
-            this.Hide();
-            dashboardForm.Closed += (s, args) => this.Close();
-            dashboardForm.Show();
+                    this.Hide();
+                    dashboardForm.Closed += (s, args) => this.Close();
+                    dashboardForm.Show();
+                }
+                else
+                {
+                    // Displays the MessageBox.
+                    MessageBox.Show("Wrong user or password!", "Please enter your user and password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch(System.Data.SqlClient.SqlException ex)
             {
-                string message = "Wrong user or password!";
-                string caption = "Please enter your user and password";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-
-
-                // Displays the MessageBox.
-                MessageBox.Show(message, caption, buttons);
+                //System.Data.Entity.Infrastructure.DbUpdateException
+                if(ex.Number == 2627)
+                {
+                    MessageBox.Show("El usuario ya seencuentra en la base de datos", "Erro Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                
             }
+            
 
 
 
