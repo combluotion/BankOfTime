@@ -107,13 +107,36 @@ namespace BankOfTime
         }
         private void btn_CancelPetition_Click(object sender, EventArgs e)
         {
-            //ConsolidatePetition form = new ConsolidatePetition((int)petitionId);
-           // form.ShowDialog();
+            FinishPetition form = new FinishPetition((int)petitionId, mobilePhoneSender, mobilePhoneTarget);
+            form.ShowDialog();
+
+            if(form.DialogResult == DialogResult.OK)
+            {
+                string message = "Petition has finished!";
+                string caption = "Petition has finished!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                // Displays the MessageBox.
+                MessageBox.Show(message, caption, buttons);
+
+                this.Close();
+            }
+
         }
         private void btn_FinishPetition_Click(object sender, EventArgs e)
         {
-            //ConsolidatePetition form = new ConsolidatePetition((int)petitionId);
-            // form.ShowDialog();
+            FinishPetition form = new FinishPetition((int)petitionId, mobilePhoneSender, mobilePhoneTarget);
+            form.ShowDialog();
+
+            if (form.DialogResult == DialogResult.OK)
+            {
+                string message = "Petition has finished!";
+                string caption = "Petition has finished!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                // Displays the MessageBox.
+                MessageBox.Show(message, caption, buttons);
+
+                this.Close();
+            }
         }
         private void btn_messageSend_Click(object sender, EventArgs e)
         {

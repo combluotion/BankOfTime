@@ -46,7 +46,7 @@ namespace BankOfTime
         public bool ConsolidatePetitionCall(int petitionId,string details, DateTime dataPeticio, int hoursTransferred)
         {
 
-            if (db == null)
+            if (db == null || Helper.Helper.IsDisposed(db))
                 db = new masterEntities();
 
             petition p = db.petition.Find(petitionId);
@@ -58,6 +58,7 @@ namespace BankOfTime
             p.Details = details;
             p.Date = dataPeticio;
             p.HoursTransferred = hoursTransferred;
+            p.Status = (int?)PetitionStatus.status.onGoing;
 
             p.user1.Balance = p.user1.Balance - hoursTransferred;
 

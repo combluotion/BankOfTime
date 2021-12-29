@@ -75,6 +75,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FinishPetition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinishPetition.Designer.cs">
+      <DependentUpon>FinishPetition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Helper.cs" />
     <Compile Include="lastRequests.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinishPetition.resx">
+      <DependentUpon>FinishPetition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="lastRequests.resx">
       <DependentUpon>lastRequests.cs</DependentUpon>

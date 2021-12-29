@@ -99,7 +99,7 @@ namespace BankOfTime
 
 
 
-            if (db == null)
+            if (db == null || Helper.Helper.IsDisposed(db))
                 db = new masterEntities();
 
                 var userLogin = (from d in db.user
