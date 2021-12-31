@@ -81,7 +81,6 @@ namespace BankOfTime
                     }
 
                 }
-            bool loginOK = TryLogin(user, password);
 
                 if (loginOK)
                 {

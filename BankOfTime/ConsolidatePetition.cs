@@ -45,7 +45,7 @@ namespace BankOfTime
 
         public bool ConsolidatePetitionCall(int petitionId,string details, DateTime dataPeticio, int hoursTransferred)
         {
-
+            borrarMensajesError();
             if (db == null || Helper.Helper.IsDisposed(db))
                 db = new masterEntities();
 
@@ -54,7 +54,9 @@ namespace BankOfTime
             if (p.user1.Balance < hoursTransferred)
                 return false;
 
-            p.Id = petitionId;
+            if (validarCampos())
+            {
+                p.Id = petitionId;
             p.Details = details;
             p.Date = dataPeticio;
             p.HoursTransferred = hoursTransferred;
@@ -62,24 +64,12 @@ namespace BankOfTime
 
             p.user1.Balance = p.user1.Balance - hoursTransferred;
 
-            
-            
-            borrarMensajesError();
-            if (validarCampos())
-            {
-                using (masterEntities db = new masterEntities())
-                {
-                    petition p = db.petition.Find(petitionId);
-                    p.Id = petitionId;
-                    p.Details = txtDetails.Text;
-                    p.Date = dt_datapeticio.Value;
-                    p.HoursTransferred = int.Parse(txtPetitionHours.Text);
-
             db.SaveChanges();
 
             db.Dispose();
 
-                }
+            
+           
 
                 MessageBox.Show("Petición guardada correctamente!", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -88,6 +78,8 @@ namespace BankOfTime
             {
                 MessageBox.Show("Todos los campos son obligatorios", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return true;
             
 
         }
