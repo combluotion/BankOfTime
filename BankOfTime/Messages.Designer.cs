@@ -30,10 +30,10 @@ namespace BankOfTime
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.MessagesLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_messageSend = new System.Windows.Forms.Button();
             this.txt_MessageToSend = new System.Windows.Forms.TextBox();
-            this.MessagesLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,6 +63,32 @@ namespace BankOfTime
             this.splitContainer1.SplitterDistance = 481;
             this.splitContainer1.TabIndex = 0;
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel2.Controls.Add(this.MessagesLayout);
+            this.splitContainer2.Size = new System.Drawing.Size(706, 481);
+            this.splitContainer2.SplitterDistance = 52;
+            this.splitContainer2.TabIndex = 1;
+            // 
+            // MessagesLayout
+            // 
+            this.MessagesLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessagesLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.MessagesLayout.Location = new System.Drawing.Point(0, 0);
+            this.MessagesLayout.Name = "MessagesLayout";
+            this.MessagesLayout.Size = new System.Drawing.Size(702, 421);
+            this.MessagesLayout.TabIndex = 0;
+            // 
             // btn_messageSend
             // 
             this.btn_messageSend.Dock = System.Windows.Forms.DockStyle.Right;
@@ -83,39 +109,17 @@ namespace BankOfTime
             this.txt_MessageToSend.Size = new System.Drawing.Size(626, 110);
             this.txt_MessageToSend.TabIndex = 0;
             // 
-            // MessagesLayout
-            // 
-            this.MessagesLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessagesLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.MessagesLayout.Location = new System.Drawing.Point(0, 0);
-            this.MessagesLayout.Name = "MessagesLayout";
-            this.MessagesLayout.Size = new System.Drawing.Size(702, 421);
-            this.MessagesLayout.TabIndex = 0;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Panel2.Controls.Add(this.MessagesLayout);
-            this.splitContainer2.Size = new System.Drawing.Size(706, 481);
-            this.splitContainer2.SplitterDistance = 52;
-            this.splitContainer2.TabIndex = 1;
-            // 
             // Messages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 595);
             this.Controls.Add(this.splitContainer1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Messages";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messages";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

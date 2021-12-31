@@ -72,6 +72,7 @@ namespace BankOfTime
             this.MinimizeBox = false;
             this.Name = "lastRequests";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Peticiones pasadas";
             this.Load += new System.EventHandler(this.lastRequests_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

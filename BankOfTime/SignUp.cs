@@ -35,29 +35,97 @@ namespace BankOfTime
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             //Obtain values
-            string nameTxt = txtName.Text;
-            int monthlyHoursVal = int.Parse(txtMonthlyHours.Text);
-            string phoneNumberTxt = txtPhoneNumber.Text;
-            string capabilitiesTxt = txtCapabilities.Text;
-            string passwordTxt = txtPassword.Text;
+            
+            
+                borrarIconomensajes();
+                if (validarCampos())
+                {
+                    
+                    string nameTxt = txtName.Text;
+                    int monthlyHoursVal = int.Parse(txtMonthlyHours.Text);
+                    string phoneNumberTxt = txtPhoneNumber.Text;
+                    string capabilitiesTxt = txtCapabilities.Text;
+                    string passwordTxt = txtPassword.Text;
 
-            user userToCreate = new user();
-            userToCreate.Name = nameTxt;
-            userToCreate.MonthlyHours = monthlyHoursVal;
-            userToCreate.Balance = monthlyHoursVal;
-            userToCreate.MobilePhone = phoneNumberTxt;
-            userToCreate.Capabilities = capabilitiesTxt;
-            userToCreate.Password = passwordTxt;
+                    user userToCreate = new user();
+                    userToCreate.Name = nameTxt;
+                    userToCreate.MonthlyHours = monthlyHoursVal;
+                    userToCreate.Balance = monthlyHoursVal;
+                    userToCreate.MobilePhone = phoneNumberTxt;
+                    userToCreate.Capabilities = capabilitiesTxt;
+                    userToCreate.Password = passwordTxt;
 
-            using(masterEntities db = new masterEntities())
+
+
+                    using (masterEntities db = new masterEntities())
+                    {
+                        db.user.Add(userToCreate);
+                        db.SaveChanges();
+
+
+                    }
+
+                    this.Close();
+
+                    MessageBox.Show("Usuario creado correcatmente", "Registro Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error en los campos", "Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+            
+
+
+
+
+
+        }
+        private bool validarCampos()
+        {
+            bool ok = true;
+
+            if(txtName.Text == "")
             {
-                db.user.Add(userToCreate);
-                db.SaveChanges();
-                
-
+                ok = false;
+                errorProvider1.SetError(txtName, "Debe ingresar el nombre");
             }
 
-            this.Close();
+            if (txtMonthlyHours.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtMonthlyHours, "Debe ingresar el número de horas al mes");
+            }
+
+            if (txtPhoneNumber.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtPhoneNumber, "Debe ingresar el número de teléfono");
+            }
+
+            if (txtCapabilities.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtCapabilities, "Debe ingresar sus habilidades");
+            }
+            if (txtPassword.Text == "")
+            {
+                ok = false;
+                errorProvider1.SetError(txtPassword, "Debe ingresar el password");
+            }
+
+            return ok;
+        }
+
+        private void borrarIconomensajes()
+        {
+            errorProvider1.SetError(txtName, "");
+            errorProvider1.SetError(txtMonthlyHours, "");
+            errorProvider1.SetError(txtPhoneNumber, "");
+            errorProvider1.SetError(txtCapabilities, "");
+            errorProvider1.SetError(txtPassword, "");
         }
     }
+
+    
 }

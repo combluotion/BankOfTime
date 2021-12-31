@@ -70,7 +70,7 @@ namespace BankOfTime
             this.MainSplit.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.MainSplit.IsSplitterFixed = true;
             this.MainSplit.Location = new System.Drawing.Point(0, 0);
-            this.MainSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainSplit.Margin = new System.Windows.Forms.Padding(2);
             this.MainSplit.Name = "MainSplit";
             this.MainSplit.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -94,11 +94,11 @@ namespace BankOfTime
             // 
             // button2
             // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(208, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(120, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 37);
+            this.button2.Size = new System.Drawing.Size(140, 45);
             this.button2.TabIndex = 5;
             this.button2.Text = "Load Xml";
             this.button2.UseVisualStyleBackColor = true;
@@ -106,11 +106,11 @@ namespace BankOfTime
             // 
             // button1
             // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(94, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(260, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 37);
+            this.button1.Size = new System.Drawing.Size(156, 45);
             this.button1.TabIndex = 4;
             this.button1.Text = "Create Xml";
             this.button1.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace BankOfTime
             this.LogoHolder.Controls.Add(this.Logo);
             this.LogoHolder.Dock = System.Windows.Forms.DockStyle.Left;
             this.LogoHolder.Location = new System.Drawing.Point(0, 0);
-            this.LogoHolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LogoHolder.Margin = new System.Windows.Forms.Padding(2);
             this.LogoHolder.Name = "LogoHolder";
             this.LogoHolder.Size = new System.Drawing.Size(111, 45);
             this.LogoHolder.TabIndex = 3;
@@ -145,7 +145,7 @@ namespace BankOfTime
             this.btnPeticiones.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPeticiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPeticiones.Location = new System.Drawing.Point(416, 0);
-            this.btnPeticiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPeticiones.Margin = new System.Windows.Forms.Padding(2);
             this.btnPeticiones.Name = "btnPeticiones";
             this.btnPeticiones.Size = new System.Drawing.Size(142, 45);
             this.btnPeticiones.TabIndex = 0;
@@ -158,7 +158,7 @@ namespace BankOfTime
             this.btnAyuda.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAyuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAyuda.Location = new System.Drawing.Point(558, 0);
-            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAyuda.Margin = new System.Windows.Forms.Padding(2);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(144, 45);
             this.btnAyuda.TabIndex = 1;
@@ -172,7 +172,7 @@ namespace BankOfTime
             this.ProfileSplit.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.ProfileSplit.IsSplitterFixed = true;
             this.ProfileSplit.Location = new System.Drawing.Point(0, 0);
-            this.ProfileSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProfileSplit.Margin = new System.Windows.Forms.Padding(2);
             this.ProfileSplit.Name = "ProfileSplit";
             // 
             // ProfileSplit.Panel1
@@ -205,7 +205,7 @@ namespace BankOfTime
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 453);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(158, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -217,7 +217,7 @@ namespace BankOfTime
             this.ProfileImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.ProfileImage.Image = ((System.Drawing.Image)(resources.GetObject("ProfileImage.Image")));
             this.ProfileImage.Location = new System.Drawing.Point(0, 0);
-            this.ProfileImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProfileImage.Margin = new System.Windows.Forms.Padding(2);
             this.ProfileImage.Name = "ProfileImage";
             this.ProfileImage.Size = new System.Drawing.Size(158, 77);
             this.ProfileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -229,7 +229,7 @@ namespace BankOfTime
             this.DataSplit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DataSplit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataSplit.Location = new System.Drawing.Point(0, 0);
-            this.DataSplit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataSplit.Margin = new System.Windows.Forms.Padding(2);
             this.DataSplit.Name = "DataSplit";
             // 
             // DataSplit.Panel1
@@ -240,7 +240,7 @@ namespace BankOfTime
             // 
             this.DataSplit.Panel2.Controls.Add(this.messagesDashboard);
             this.DataSplit.Size = new System.Drawing.Size(541, 543);
-            this.DataSplit.SplitterDistance = 337;
+            this.DataSplit.SplitterDistance = 339;
             this.DataSplit.SplitterWidth = 3;
             this.DataSplit.TabIndex = 0;
             // 
@@ -249,11 +249,11 @@ namespace BankOfTime
             this.usersDashboard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersDashboard.Location = new System.Drawing.Point(0, 0);
-            this.usersDashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usersDashboard.Margin = new System.Windows.Forms.Padding(2);
             this.usersDashboard.Name = "usersDashboard";
             this.usersDashboard.RowHeadersWidth = 51;
             this.usersDashboard.RowTemplate.Height = 24;
-            this.usersDashboard.Size = new System.Drawing.Size(333, 539);
+            this.usersDashboard.Size = new System.Drawing.Size(335, 539);
             this.usersDashboard.TabIndex = 0;
             this.usersDashboard.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDashboard_CellDoubleClick);
             // 
@@ -264,7 +264,7 @@ namespace BankOfTime
             this.messagesDashboard.Location = new System.Drawing.Point(0, 0);
             this.messagesDashboard.Name = "messagesDashboard";
             this.messagesDashboard.RowHeadersWidth = 51;
-            this.messagesDashboard.Size = new System.Drawing.Size(197, 539);
+            this.messagesDashboard.Size = new System.Drawing.Size(195, 539);
             this.messagesDashboard.TabIndex = 0;
             this.messagesDashboard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -274,8 +274,10 @@ namespace BankOfTime
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 595);
             this.Controls.Add(this.MainSplit);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.MainSplit.Panel1.ResumeLayout(false);

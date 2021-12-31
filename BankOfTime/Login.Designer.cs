@@ -56,7 +56,7 @@ namespace BankOfTime
             this.panel1.Controls.Add(this.header_login);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 366);
             this.panel1.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace BankOfTime
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(303, 266);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(85, 20);
@@ -74,30 +74,34 @@ namespace BankOfTime
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Location = new System.Drawing.Point(303, 226);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(85, 20);
             this.txtPhoneNumber.TabIndex = 7;
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Image = global::BankOfTime.Properties.Resources.userAdd;
+            this.btnSignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSignUp.Location = new System.Drawing.Point(312, 317);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(75, 26);
+            this.btnSignUp.Size = new System.Drawing.Size(88, 26);
             this.btnSignUp.TabIndex = 6;
-            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.Text = "   Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Image = global::BankOfTime.Properties.Resources.user;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(180, 317);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 26);
+            this.btnLogin.Size = new System.Drawing.Size(88, 26);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -132,7 +136,7 @@ namespace BankOfTime
             this.header_logo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.header_logo.Image = ((System.Drawing.Image)(resources.GetObject("header_logo.Image")));
             this.header_logo.Location = new System.Drawing.Point(214, 27);
-            this.header_logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.header_logo.Margin = new System.Windows.Forms.Padding(2);
             this.header_logo.Name = "header_logo";
             this.header_logo.Size = new System.Drawing.Size(140, 90);
             this.header_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,8 +165,11 @@ namespace BankOfTime
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BOT (Bank of Time)";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
