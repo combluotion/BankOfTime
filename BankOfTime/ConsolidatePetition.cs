@@ -31,14 +31,19 @@ namespace BankOfTime
 
         private void btnConsolidate_Click(object sender, EventArgs e)
         {
+            if (validarCampos())
+            {
+                bool consolidated = ConsolidatePetitionCall(petitionId, txtDetails.Text, dt_datapeticio.Value, int.Parse(txtPetitionHours.Text));
 
-            bool consolidated = ConsolidatePetitionCall(petitionId, txtDetails.Text, dt_datapeticio.Value, int.Parse(txtPetitionHours.Text));
-
-            if (consolidated)
-                this.DialogResult = DialogResult.OK;
+                if (consolidated)
+                    this.DialogResult = DialogResult.OK;
+                else
+                    this.DialogResult = DialogResult.Abort;
+            }
             else
-                this.DialogResult = DialogResult.Abort;
-
+            {
+                MessageBox.Show("Todos los campos son obligatorios", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.Close();
 
         }
@@ -54,8 +59,7 @@ namespace BankOfTime
             if (p.user1.Balance < hoursTransferred)
                 return false;
 
-            if (validarCampos())
-            {
+            
                 p.Id = petitionId;
             p.Details = details;
             p.Date = dataPeticio;
@@ -71,13 +75,10 @@ namespace BankOfTime
             
            
 
-                MessageBox.Show("Petición guardada correctamente!", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           MessageBox.Show("Petición guardada correctamente!", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-            else
-            {
-                MessageBox.Show("Todos los campos son obligatorios", "Petición", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+
 
             return true;
             
